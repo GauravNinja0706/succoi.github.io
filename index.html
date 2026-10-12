@@ -2,69 +2,1084 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name | Portfolio</title>
-  <meta name="description" content="Welcome to my personal portfolio.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8f7f4" />
+  <meta name="description" content="Succoi — The Food Journey. Discover recipes, food stories, ingredients, and the people behind every dish." />
+  <title>Succoi — The Food Journey</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    :root {
+      --bg: #f8f7f4;
+      --text: #20201e;
+      --muted: #77756f;
+      --line: #e6e3dc;
+      --accent: #7c815d;
+      --white: #ffffff;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+      --width: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #202638;
-      line-height: 1.7;
+      padding: 0;
     }
-    header {
-      padding: 24px 8%;
-      background: #fff;
-      font-weight: bold;
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
     }
-    main {
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(var(--width), calc(100% - 80px));
+      margin-inline: auto;
+    }
+
+    /* Navigation */
+
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 247, 244, .91);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(230, 227, 220, .8);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 26px;
+      letter-spacing: -1.6px;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #575650;
+      font-size: 13px;
+      transition: color .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      border: 1px solid var(--text);
+      border-radius: 50px;
+      padding: 11px 19px;
+      font-size: 12px;
+      transition: background .25s, color .25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--text);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      font-size: 24px;
+      padding: 8px;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 96px 0 76px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+    }
+
+    .hero-copy {
       max-width: 850px;
-      margin: 70px auto;
-      padding: 24px;
+      margin-bottom: 48px;
     }
-    h1 { font-size: clamp(38px, 7vw, 64px); line-height: 1.1; }
-    .intro { font-size: 20px; color: #596579; }
-    section {
-      background: white;
-      margin-top: 24px;
-      padding: 24px;
-      border-radius: 16px;
+
+    .hero h1 {
+      font-size: clamp(54px, 8vw, 100px);
+      font-weight: 500;
+      letter-spacing: -5.8px;
+      line-height: 1.02;
+      margin: 22px 0;
     }
-    a { color: #315ee7; }
-    footer { text-align: center; padding: 30px; color: #596579; }
+
+    .hero h1 em {
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+      max-width: 440px;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      height: clamp(330px, 49vw, 590px);
+      overflow: hidden;
+      border-radius: 5px;
+      background: #ded8cb;
+    }
+
+    .hero-image {
+      height: 100%;
+      object-position: center 55%;
+      transition: transform 1s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .hero-image-wrap:hover .hero-image {
+      transform: scale(1.025);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(22px, 5vw, 58px);
+      background: linear-gradient(
+        transparent 35%,
+        rgba(0,0,0,.55) 100%
+      );
+      color: white;
+    }
+
+    .hero-overlay h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 400;
+      max-width: 530px;
+      line-height: 1.2;
+      margin: 12px 0 22px;
+    }
+
+    .hero-overlay .eyebrow {
+      color: #e3e4d6;
+    }
+
+    .text-link {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      padding-bottom: 5px;
+      border-bottom: 1px solid currentColor;
+      font-size: 12px;
+      transition: gap .25s;
+    }
+
+    .text-link:hover {
+      gap: 19px;
+    }
+
+    /* Intro strip */
+
+    .intro-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+      border-top: 1px solid var(--line);
+      margin-top: 35px;
+    }
+
+    .intro-strip p {
+      font-family: var(--serif);
+      font-size: clamp(17px, 2vw, 22px);
+    }
+
+    .intro-strip span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Stories */
+
+    .section {
+      padding: 105px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(34px, 5vw, 54px);
+      letter-spacing: -2.3px;
+      font-weight: 500;
+      margin-top: 13px;
+    }
+
+    .section-heading > p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 30px;
+      padding: 10px 17px;
+      font-size: 11px;
+      transition: all .25s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--text);
+      color: white;
+      border-color: var(--text);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 42px 24px;
+    }
+
+    .story-card {
+      min-width: 0;
+      animation: reveal .5s ease both;
+    }
+
+    .story-card.hidden {
+      display: none;
+    }
+
+    .story-image-wrap {
+      overflow: hidden;
+      background: #e5e0d6;
+      aspect-ratio: 4 / 4.5;
+      margin-bottom: 23px;
+    }
+
+    .story-image {
+      height: 100%;
+      transition: transform .65s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .story-card:hover .story-image {
+      transform: scale(1.045);
+    }
+
+    .story-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--accent);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      font-weight: 700;
+      margin-bottom: 13px;
+    }
+
+    .story-meta span:last-child {
+      color: var(--muted);
+      white-space: nowrap;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .story-card h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(21px, 2.4vw, 29px);
+      letter-spacing: -.5px;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .story-card > p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 22px;
+    }
+
+    .story-card .text-link {
+      font-size: 11px;
+    }
+
+    /* Manifesto */
+
+    .manifesto {
+      background: #eeece5;
+      padding: 100px 0;
+    }
+
+    .manifesto-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .manifesto-image {
+      height: 500px;
+      object-position: center;
+    }
+
+    .manifesto-copy h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(36px, 5vw, 62px);
+      letter-spacing: -2px;
+      line-height: 1.18;
+      margin: 24px 0;
+    }
+
+    .manifesto-copy > p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+      max-width: 410px;
+      margin-bottom: 28px;
+    }
+
+    /* Newsletter */
+
+    .newsletter {
+      padding: 110px 0;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: clamp(37px, 6vw, 65px);
+      letter-spacing: -3px;
+      font-weight: 500;
+      line-height: 1.15;
+      margin: 18px 0;
+    }
+
+    .newsletter h2 em {
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+
+    .newsletter > .container > p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .newsletter-form {
+      max-width: 430px;
+      margin: 32px auto 12px;
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid #a6a39b;
+      padding-bottom: 9px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      width: 0;
+      border: 0;
+      outline: none;
+      background: transparent;
+      font-size: 13px;
+      min-width: 0;
+    }
+
+    .newsletter-form button {
+      background: transparent;
+      border: 0;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button span {
+      margin-left: 8px;
+    }
+
+    .form-message {
+      color: var(--accent);
+      font-size: 12px;
+      min-height: 20px;
+      margin-top: 12px;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .footer-brand p,
+    .footer-note {
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 7px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* Motion */
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* Responsive */
+
+    @media (max-width: 800px) {
+      .container {
+        width: calc(100% - 40px);
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3.5px;
+      }
+
+      .story-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px 18px;
+      }
+
+      .manifesto-inner {
+        gap: 35px;
+      }
+
+      .manifesto-image {
+        height: 410px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        height: 66px;
+      }
+
+      .container {
+        width: calc(100% - 36px);
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 66px 0 0;
+        background: var(--bg);
+        padding: 42px 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity .25s, transform .25s, visibility .25s;
+      }
+
+      .nav-links.open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav-links a {
+        font-family: var(--serif);
+        font-size: 30px;
+      }
+
+      .hero {
+        padding: 66px 0 50px;
+      }
+
+      .hero h1 {
+        font-size: clamp(49px, 12vw, 70px);
+        letter-spacing: -3px;
+      }
+
+      .hero-copy {
+        margin-bottom: 34px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .hero-image-wrap {
+        height: 430px;
+      }
+
+      .hero-overlay h2 {
+        font-size: 34px;
+      }
+
+      .intro-strip {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 28px;
+      }
+
+      .section-heading h2 {
+        font-size: 39px;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .story-image-wrap {
+        aspect-ratio: 4 / 3.7;
+        margin-bottom: 18px;
+      }
+
+      .story-card h3 {
+        font-size: 27px;
+      }
+
+      .manifesto {
+        padding: 65px 0;
+      }
+
+      .manifesto-inner {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .manifesto-image {
+        height: 370px;
+      }
+
+      .manifesto-copy h2 {
+        font-size: 43px;
+      }
+
+      .newsletter {
+        padding: 78px 0;
+      }
+
+      .newsletter h2 {
+        letter-spacing: -2px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header>YOUR NAME</header>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a href="#home" class="logo" aria-label="Succoi home">
+        succoi<span>.</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#about">Our philosophy</a></li>
+        <li><a href="#newsletter">Journal club</a></li>
+      </ul>
+
+      <a href="#stories" class="nav-cta">Explore the journal ↗</a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >☰</button>
+    </nav>
+  </header>
+
   <main>
-    <p>HELLO, I'M</p>
-    <h1>Your Name.</h1>
-    <p class="intro">
-      I am a [your profession or passion].
-      Welcome to my personal corner of the internet.
-    </p>
+    <!-- Hero -->
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">A journal for the curious palate</p>
+        <h1>Food is more<br>than <em>what we eat.</em></h1>
+        <p class="hero-description">
+          It is where we come from, what we remember,
+          and the moments we create around a table.
+          Welcome to the food journey.
+        </p>
+      </div>
 
-    <section>
-      <h2>About Me</h2>
-      <p>Write a short introduction about yourself,
-      your background, interests and goals.</p>
+      <a class="hero-image-wrap" href="#stories" aria-label="Explore the latest food stories">
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=2000&q=85"
+          alt="A beautifully prepared meal with fresh ingredients"
+          fetchpriority="high"
+        >
+        <div class="hero-overlay">
+          <div>
+            <p class="eyebrow">The Sunday Table · Issue No. 01</p>
+            <h2>The beauty of slowing down, one meal at a time.</h2>
+            <span class="text-link">Discover the story <span>↗</span></span>
+          </div>
+        </div>
+      </a>
+
+      <div class="intro-strip">
+        <p>Good food. Honest stories. Meaningful moments.</p>
+        <span>Made with curiosity, served with love.</span>
+      </div>
     </section>
 
-    <section>
-      <h2>My Work</h2>
-      <p>Add your projects, experience, achievements
-      or examples of your work here.</p>
+    <!-- Stories -->
+    <section class="section container" id="stories">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The Succoi journal</p>
+          <h2>Stories worth savouring.</h2>
+        </div>
+        <p>
+          From recipes passed down through generations
+          to ingredients that change the way we cook.
+        </p>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="Filter food stories">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">Everything</button>
+        <button class="filter-btn" data-filter="recipes" aria-pressed="false">Recipes</button>
+        <button class="filter-btn" data-filter="origins" aria-pressed="false">Origins</button>
+        <button class="filter-btn" data-filter="culture" aria-pressed="false">Food culture</button>
+      </div>
+
+      <div class="story-grid">
+
+        <article class="story-card" data-category="recipes">
+          <a href="#newsletter" aria-label="Read about the art of homemade pasta">
+            <div class="story-image-wrap">
+              <img
+                class="story-image"
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1000&q=80"
+                alt="Fresh pasta with herbs and olive oil"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-meta">
+            <span>Recipes</span>
+            <span>6 min read</span>
+          </div>
+          <h3>The art of making something from scratch.</h3>
+          <p>Flour, water, a little patience. Discover why the simplest recipes are often the most memorable.</p>
+          <a href="#newsletter" class="text-link">Read the story <span>↗</span></a>
+        </article>
+
+        <article class="story-card" data-category="origins">
+          <a href="#newsletter" aria-label="Read about the origins of coffee">
+            <div class="story-image-wrap">
+              <img
+                class="story-image"
+                src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80"
+                alt="Coffee prepared in a warm, intimate cafe"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-meta">
+            <span>Origins</span>
+            <span>5 min read</span>
+          </div>
+          <h3>Every cup of coffee has a story to tell.</h3>
+          <p>A journey from distant coffee farms to the familiar ritual that starts our mornings.</p>
+          <a href="#newsletter" class="text-link">Read the story <span>↗</span></a>
+        </article>
+
+        <article class="story-card" data-category="culture">
+          <a href="#newsletter" aria-label="Read about the joy of gathering around food">
+            <div class="story-image-wrap">
+              <img
+                class="story-image"
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80"
+                alt="A welcoming restaurant dining room"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-meta">
+            <span>Food culture</span>
+            <span>4 min read</span>
+          </div>
+          <h3>Why the best memories happen around a table.</h3>
+          <p>Across cultures and generations, sharing a meal has always meant something more.</p>
+          <a href="#newsletter" class="text-link">Read the story <span>↗</span></a>
+        </article>
+
+        <article class="story-card" data-category="recipes">
+          <a href="#newsletter" aria-label="Read about seasonal ingredients">
+            <div class="story-image-wrap">
+              <img
+                class="story-image"
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=80"
+                alt="A fresh, colourful bowl of vegetables"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-meta">
+            <span>Recipes</span>
+            <span>7 min read</span>
+          </div>
+          <h3>A little more season, a little less fuss.</h3>
+          <p>Let fresh produce lead the way with simple cooking that makes ingredients shine.</p>
+          <a href="#newsletter" class="text-link">Read the story <span>↗</span></a>
+        </article>
+
+        <article class="story-card" data-category="origins">
+          <a href="#newsletter" aria-label="Read about the people behind our food">
+            <div class="story-image-wrap">
+              <img
+                class="story-image"
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80"
+                alt="A peaceful agricultural landscape"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-meta">
+            <span>Origins</span>
+            <span>8 min read</span>
+          </div>
+          <h3>Before it reaches the plate, there is a person.</h3>
+          <p>Meet the hands, the land, and the patience behind the ingredients we often take for granted.</p>
+          <a href="#newsletter" class="text-link">Read the story <span>↗</span></a>
+        </article>
+
+        <article class="story-card" data-category="culture">
+          <a href="#newsletter" aria-label="Read about the ritual of slow mornings">
+            <div class="story-image-wrap">
+              <img
+                class="story-image"
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80"
+                alt="A quiet morning coffee ritual"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-meta">
+            <span>Food culture</span>
+            <span>3 min read</span>
+          </div>
+          <h3>The quiet luxury of an unhurried morning.</h3>
+          <p>A good cup, an open window, and a moment before the world asks for your attention.</p>
+          <a href="#newsletter" class="text-link">Read the story <span>↗</span></a>
+        </article>
+
+      </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email me at
-        <a href="mailto:you@example.com">you@example.com</a>
-      </p>
+    <!-- Brand philosophy -->
+    <section class="manifesto" id="about">
+      <div class="container manifesto-inner">
+        <img
+          class="manifesto-image"
+          src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=85"
+          alt="Fresh produce and ingredients prepared for cooking"
+          loading="lazy"
+        >
+
+        <div class="manifesto-copy">
+          <p class="eyebrow">What we believe</p>
+          <h2>Less noise.<br>More flavour.<br><em>Better stories.</em></h2>
+          <p>
+            At Succoi, we believe food deserves our attention.
+            Not just the final dish, but the ingredients,
+            traditions, people, and little everyday rituals
+            that make eating meaningful.
+          </p>
+          <p>
+            This is a place for the curious, the hungry,
+            and everyone who believes a good meal can tell
+            a beautiful story.
+          </p>
+          <a href="#stories" class="text-link">Explore our journal <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+      <div class="container">
+        <p class="eyebrow">A note from Succoi</p>
+        <h2>A little food for<br><em>your inbox.</em></h2>
+        <p>
+          Thoughtful stories, seasonal recipes, and fresh inspiration.<br>
+          Delivered occasionally, never excessively.
+        </p>
+
+        <form class="newsletter-form" id="newsletterForm">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email address"
+            aria-label="Your email address"
+            autocomplete="email"
+            required
+          >
+          <button type="submit">Count me in <span>↗</span></button>
+        </form>
+        <p class="form-message" id="formMessage" aria-live="polite"></p>
+      </div>
     </section>
   </main>
-  <footer>© 2026 Your Name</footer>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#home" class="logo">succoi<span>.</span></a>
+        <p>© <span id="year"></span> Succoi. The Food Journey.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#stories">Journal</a>
+        <a href="#about">Our story</a>
+        <a href="#newsletter">Contact</a>
+      </div>
+
+      <p class="footer-note">Made for the love of food.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      menuToggle.textContent = "☰";
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      document.body.classList.toggle("menu-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 600) closeMenu();
+    });
+
+    // Filter stories by category
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const storyCards = document.querySelectorAll(".story-card");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const selectedCategory = button.dataset.filter;
+
+        filterButtons.forEach(item => {
+          const active = item === button;
+          item.classList.toggle("active", active);
+          item.setAttribute("aria-pressed", String(active));
+        });
+
+        storyCards.forEach(card => {
+          const matches =
+            selectedCategory === "all" ||
+            card.dataset.category === selectedCategory;
+
+          card.classList.toggle("hidden", !matches);
+
+          if (matches) {
+            card.style.animation = "none";
+            void card.offsetWidth;
+            card.style.animation = "";
+          }
+        });
+      });
+    });
+
+    // Newsletter interaction
+    // This validates the form locally; connect a backend or email
+    // marketing service to actually save subscriber addresses.
+    const newsletterForm = document.getElementById("newsletterForm");
+    const formMessage = document.getElementById("formMessage");
+
+    newsletterForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!newsletterForm.reportValidity()) return;
+
+      formMessage.textContent =
+        "Thanks for your interest! Newsletter delivery isn't connected yet.";
+
+      newsletterForm.reset();
+    });
+
+    // Automatically update copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
