@@ -11,7 +11,7 @@
 }
 
 .manifesto__image {
-  height: 500px;
+  aspect-ratio: 5 / 4;
   object-position: center;
 }
 
@@ -40,7 +40,7 @@
   }
 
   .manifesto__image {
-    height: 410px;
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -55,7 +55,7 @@
   }
 
   .manifesto__image {
-    height: 370px;
+    aspect-ratio: 4 / 3;
   }
 
   .manifesto__title {
