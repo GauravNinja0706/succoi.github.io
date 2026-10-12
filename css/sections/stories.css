@@ -1,0 +1,32 @@
+.stories {
+  /* Section padding comes from .section utility */
+}
+
+.stories__filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.stories__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 24px;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+  .stories__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .stories__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

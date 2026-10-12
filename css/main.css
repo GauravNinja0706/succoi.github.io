@@ -1,0 +1,30 @@
+/* ==========================================================================
+   main.css — Single entry point for all styles
+   Import order: base → layout → components → sections
+   ========================================================================== */
+
+/* Base */
+@import url("base/reset.css");
+@import url("base/variables.css");
+@import url("base/typography.css");
+@import url("base/motion.css");
+
+/* Layout */
+@import url("layout/container.css");
+@import url("layout/section.css");
+@import url("layout/footer.css");
+
+/* Components */
+@import url("components/skip-link.css");
+@import url("components/navbar.css");
+@import url("components/nav-links.css");
+@import url("components/filter-button.css");
+@import url("components/hero.css");
+@import url("components/story-card.css");
+@import url("components/newsletter-form.css");
+
+/* Sections */
+@import url("sections/intro-strip.css");
+@import url("sections/stories.css");
+@import url("sections/manifesto.css");
+@import url("sections/newsletter.css");

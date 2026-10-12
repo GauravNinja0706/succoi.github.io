@@ -1,0 +1,16 @@
+.filter-btn {
+  border: 1px solid var(--color-line);
+  background: transparent;
+  color: var(--color-muted);
+  border-radius: 30px;
+  padding: 10px 17px;
+  font-size: 11px;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover,
+.filter-btn--active {
+  background: var(--color-text);
+  color: var(--color-white);
+  border-color: var(--color-text);
+}
