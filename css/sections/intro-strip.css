@@ -1,0 +1,30 @@
+.intro-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 27px 0;
+  border-bottom: 1px solid var(--color-line);
+  border-top: 1px solid var(--color-line);
+  margin-top: 35px;
+}
+
+.intro-strip p {
+  font-family: var(--font-serif);
+  font-size: clamp(17px, 2vw, 22px);
+}
+
+.intro-strip span {
+  color: var(--color-muted);
+  font-size: 11px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .intro-strip {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

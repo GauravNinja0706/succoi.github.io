@@ -1,70 +1,302 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name | Portfolio</title>
-  <meta name="description" content="Welcome to my personal portfolio.">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #202638;
-      line-height: 1.7;
-    }
-    header {
-      padding: 24px 8%;
-      background: #fff;
-      font-weight: bold;
-    }
-    main {
-      max-width: 850px;
-      margin: 70px auto;
-      padding: 24px;
-    }
-    h1 { font-size: clamp(38px, 7vw, 64px); line-height: 1.1; }
-    .intro { font-size: 20px; color: #596579; }
-    section {
-      background: white;
-      margin-top: 24px;
-      padding: 24px;
-      border-radius: 16px;
-    }
-    a { color: #315ee7; }
-    footer { text-align: center; padding: 30px; color: #596579; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8f7f4" />
+  <meta name="description" content="Succoi — The Food Journey. Discover recipes, food stories, ingredients, and the people behind every dish." />
+  <title>Succoi — The Food Journey</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css" />
+  <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
 </head>
 <body>
-  <header>YOUR NAME</header>
-  <main>
-    <p>HELLO, I'M</p>
-    <h1>Your Name.</h1>
-    <p class="intro">
-      I am a [your profession or passion].
-      Welcome to my personal corner of the internet.
-    </p>
 
-    <section>
-      <h2>About Me</h2>
-      <p>Write a short introduction about yourself,
-      your background, interests and goals.</p>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="navbar">
+    <nav class="container navbar__inner" aria-label="Main navigation">
+      <a href="#home" class="navbar__logo" aria-label="Succoi home">
+        succoi<span>.</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks" data-js="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#about">Our philosophy</a></li>
+        <li><a href="#newsletter">Journal club</a></li>
+      </ul>
+
+      <a href="#stories" class="navbar__cta">Explore the journal ↗</a>
+
+      <button
+        class="navbar__toggle"
+        data-js="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >☰</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container" id="home" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">A journal for the curious palate</p>
+        <h1 class="hero__title" id="hero-title">Food is more<br>than <em>what we eat.</em></h1>
+        <p class="hero__description">
+          It is where we come from, what we remember,
+          and the moments we create around a table.
+          Welcome to the food journey.
+        </p>
+      </div>
+
+      <a class="hero__image-wrap" href="#stories" aria-label="Explore the latest food stories">
+        <img
+          class="hero__image"
+          src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=2000&q=85"
+          alt="A beautifully prepared meal with fresh ingredients"
+          fetchpriority="high"
+        >
+        <div class="hero__overlay">
+          <div>
+            <p class="eyebrow">The Sunday Table · Issue No. 01</p>
+            <h2 class="hero__overlay-title">The beauty of slowing down, one meal at a time.</h2>
+            <span class="text-link">Discover the story <span aria-hidden="true">↗</span></span>
+          </div>
+        </div>
+      </a>
+
+      <div class="intro-strip">
+        <p>Good food. Honest stories. Meaningful moments.</p>
+        <span>Made with curiosity, served with love.</span>
+      </div>
     </section>
 
-    <section>
-      <h2>My Work</h2>
-      <p>Add your projects, experience, achievements
-      or examples of your work here.</p>
+    <section class="section container" id="stories" aria-labelledby="stories-title">
+      <div class="section__heading">
+        <div>
+          <p class="eyebrow">The Succoi journal</p>
+          <h2 id="stories-title">Stories worth savouring.</h2>
+        </div>
+        <p>
+          From recipes passed down through generations
+          to ingredients that change the way we cook.
+        </p>
+      </div>
+
+      <div class="stories__filter-row" role="group" aria-label="Filter food stories">
+        <button class="filter-btn filter-btn--active" data-js="filter-btn" data-filter="all" aria-pressed="true">Everything</button>
+        <button class="filter-btn" data-js="filter-btn" data-filter="recipes" aria-pressed="false">Recipes</button>
+        <button class="filter-btn" data-js="filter-btn" data-filter="origins" aria-pressed="false">Origins</button>
+        <button class="filter-btn" data-js="filter-btn" data-filter="culture" aria-pressed="false">Food culture</button>
+      </div>
+
+      <div class="stories__grid">
+
+        <article class="story-card" data-js="story-card" data-category="recipes">
+          <a href="#newsletter" aria-label="Read about the art of homemade pasta">
+            <div class="story-card__image-wrap">
+              <img
+                class="story-card__image"
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1000&q=80"
+                alt="Fresh pasta with herbs and olive oil"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-card__meta">
+            <span>Recipes</span>
+            <span>6 min read</span>
+          </div>
+          <h3 class="story-card__title">The art of making something from scratch.</h3>
+          <p class="story-card__description">Flour, water, a little patience. Discover why the simplest recipes are often the most memorable.</p>
+          <a href="#newsletter" class="text-link">Read the story <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="story-card" data-js="story-card" data-category="origins">
+          <a href="#newsletter" aria-label="Read about the origins of coffee">
+            <div class="story-card__image-wrap">
+              <img
+                class="story-card__image"
+                src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80"
+                alt="Coffee prepared in a warm, intimate cafe"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-card__meta">
+            <span>Origins</span>
+            <span>5 min read</span>
+          </div>
+          <h3 class="story-card__title">Every cup of coffee has a story to tell.</h3>
+          <p class="story-card__description">A journey from distant coffee farms to the familiar ritual that starts our mornings.</p>
+          <a href="#newsletter" class="text-link">Read the story <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="story-card" data-js="story-card" data-category="culture">
+          <a href="#newsletter" aria-label="Read about the joy of gathering around food">
+            <div class="story-card__image-wrap">
+              <img
+                class="story-card__image"
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80"
+                alt="A welcoming restaurant dining room"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-card__meta">
+            <span>Food culture</span>
+            <span>4 min read</span>
+          </div>
+          <h3 class="story-card__title">Why the best memories happen around a table.</h3>
+          <p class="story-card__description">Across cultures and generations, sharing a meal has always meant something more.</p>
+          <a href="#newsletter" class="text-link">Read the story <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="story-card" data-js="story-card" data-category="recipes">
+          <a href="#newsletter" aria-label="Read about seasonal ingredients">
+            <div class="story-card__image-wrap">
+              <img
+                class="story-card__image"
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=80"
+                alt="A fresh, colourful bowl of vegetables"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-card__meta">
+            <span>Recipes</span>
+            <span>7 min read</span>
+          </div>
+          <h3 class="story-card__title">A little more season, a little less fuss.</h3>
+          <p class="story-card__description">Let fresh produce lead the way with simple cooking that makes ingredients shine.</p>
+          <a href="#newsletter" class="text-link">Read the story <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="story-card" data-js="story-card" data-category="origins">
+          <a href="#newsletter" aria-label="Read about the people behind our food">
+            <div class="story-card__image-wrap">
+              <img
+                class="story-card__image"
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80"
+                alt="A peaceful agricultural landscape"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-card__meta">
+            <span>Origins</span>
+            <span>8 min read</span>
+          </div>
+          <h3 class="story-card__title">Before it reaches the plate, there is a person.</h3>
+          <p class="story-card__description">Meet the hands, the land, and the patience behind the ingredients we often take for granted.</p>
+          <a href="#newsletter" class="text-link">Read the story <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="story-card" data-js="story-card" data-category="culture">
+          <a href="#newsletter" aria-label="Read about the ritual of slow mornings">
+            <div class="story-card__image-wrap">
+              <img
+                class="story-card__image"
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80"
+                alt="A quiet morning coffee ritual"
+                loading="lazy"
+              >
+            </div>
+          </a>
+          <div class="story-card__meta">
+            <span>Food culture</span>
+            <span>3 min read</span>
+          </div>
+          <h3 class="story-card__title">The quiet luxury of an unhurried morning.</h3>
+          <p class="story-card__description">A good cup, an open window, and a moment before the world asks for your attention.</p>
+          <a href="#newsletter" class="text-link">Read the story <span aria-hidden="true">↗</span></a>
+        </article>
+
+      </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email me at
-        <a href="mailto:you@example.com">you@example.com</a>
-      </p>
+    <section class="manifesto" id="about" aria-labelledby="manifesto-title">
+      <div class="container manifesto__inner">
+        <img
+          class="manifesto__image"
+          src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=85"
+          alt="Fresh produce and ingredients prepared for cooking"
+          loading="lazy"
+        >
+
+        <div class="manifesto__copy">
+          <p class="eyebrow">What we believe</p>
+          <h2 class="manifesto__title" id="manifesto-title">Less noise.<br>More flavour.<br><em>Better stories.</em></h2>
+          <p class="manifesto__text">
+            At Succoi, we believe food deserves our attention.
+            Not just the final dish, but the ingredients,
+            traditions, people, and little everyday rituals
+            that make eating meaningful.
+          </p>
+          <p class="manifesto__text">
+            This is a place for the curious, the hungry,
+            and everyone who believes a good meal can tell
+            a beautiful story.
+          </p>
+          <a href="#stories" class="text-link">Explore our journal <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
+      <div class="container">
+        <p class="eyebrow">A note from Succoi</p>
+        <h2 class="newsletter__title" id="newsletter-title">A little food for<br><em>your inbox.</em></h2>
+        <p class="newsletter__description">
+          Thoughtful stories, seasonal recipes, and fresh inspiration.<br>
+          Delivered occasionally, never excessively.
+        </p>
+
+        <form class="newsletter-form" data-js="newsletter-form" novalidate>
+          <label for="email" class="visually-hidden">Your email address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="newsletter-form__input"
+            placeholder="Your email address"
+            aria-label="Your email address"
+            autocomplete="email"
+            required
+          >
+          <button type="submit" class="newsletter-form__submit">Count me in <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="form-message" data-js="form-message" aria-live="polite"></p>
+      </div>
     </section>
   </main>
-  <footer>© 2026 Your Name</footer>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#home" class="navbar__logo">succoi<span>.</span></a>
+        <p>© <span data-js="current-year"></span> Succoi. The Food Journey.</p>
+      </div>
+
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#stories">Journal</a>
+        <a href="#about">Our story</a>
+        <a href="#newsletter">Contact</a>
+      </nav>
+
+      <p class="footer__note">Made for the love of food.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

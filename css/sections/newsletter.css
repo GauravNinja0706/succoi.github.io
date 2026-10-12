@@ -1,0 +1,35 @@
+.newsletter {
+  padding: 110px 0;
+  text-align: center;
+}
+
+.newsletter__title {
+  font-size: clamp(37px, 6vw, 65px);
+  letter-spacing: -3px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 18px 0;
+}
+
+.newsletter__title em {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+.newsletter__description {
+  font-size: 13px;
+  color: var(--color-muted);
+  line-height: 1.9;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .newsletter {
+    padding: 78px 0;
+  }
+
+  .newsletter__title {
+    letter-spacing: -2px;
+  }
+}

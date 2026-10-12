@@ -1,0 +1,26 @@
+:root {
+  --color-bg: #f8f7f4;
+  --color-text: #20201e;
+  --color-muted: #77756f;
+  --color-line: #e6e3dc;
+  --color-accent: #7c815d;
+  --color-white: #ffffff;
+  --color-nav-link: #575650;
+  --color-overlay-bg: rgba(248, 247, 244, 0.91);
+  --color-nav-border: rgba(230, 227, 220, 0.8);
+  --color-manifesto-bg: #eeece5;
+  --color-hero-image-bg: #ded8cb;
+  --color-story-image-bg: #e5e0d6;
+  --color-newsletter-border: #a6a39b;
+  --color-overlay-eyebrow: #e3e4d6;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", sans-serif;
+
+  --width-container: 1240px;
+
+  --transition-fast: 0.25s;
+  --transition-medium: 0.65s;
+  --transition-slow: 1s;
+  --ease-smooth: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
