@@ -20,9 +20,18 @@
 @media (max-width: 600px) {
   .nav-links {
     position: fixed;
-    inset: 66px 0 0;
-    background: var(--color-bg);
-    padding: 42px 28px;
+    top: 66px;
+    left: 0;
+    right: 0;
+    max-height: min(60vh, 420px);
+    z-index: -1;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.35);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-nav-border);
+    border-radius: 0 0 16px 16px;
+    padding: 28px;
     flex-direction: column;
     align-items: flex-start;
     gap: 28px;
