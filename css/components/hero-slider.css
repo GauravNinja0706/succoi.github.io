@@ -1,0 +1,121 @@
+.hero-slider {
+  position: relative;
+  height: clamp(380px, 52vw, 620px);
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--color-hero-image-bg);
+}
+
+.hero-slide {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-slide__image {
+  height: 100%;
+  object-position: center 55%;
+  transform: scale(1.1);
+  transition: transform 7s linear;
+}
+
+.hero-slide.swiper-slide-active .hero-slide__image {
+  transform: scale(1);
+}
+
+.hero-slide__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(22px, 5vw, 58px);
+  padding-bottom: clamp(34px, 6vw, 70px);
+  background: linear-gradient(transparent 35%, rgba(0, 0, 0, 0.6) 100%);
+  color: var(--color-white);
+}
+
+.hero-slide__tag {
+  display: inline-block;
+  padding: 7px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 30px;
+  color: var(--color-overlay-eyebrow);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.hero-slide__title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  max-width: 560px;
+  line-height: 1.2;
+  margin: 16px 0 24px;
+}
+
+/* Staggered text entrance on the active slide */
+.hero-slide__overlay > div > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s var(--ease-smooth),
+    transform 0.7s var(--ease-smooth);
+}
+
+.hero-slide.swiper-slide-active .hero-slide__overlay > div > * {
+  opacity: 1;
+  transform: none;
+}
+
+.hero-slide.swiper-slide-active .hero-slide__overlay > div > :nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.hero-slide.swiper-slide-active .hero-slide__overlay > div > :nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.hero-slider > .hero-slider__progress.swiper-pagination-progressbar {
+  top: auto;
+  bottom: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.hero-slider__progress .swiper-pagination-progressbar-fill {
+  background: var(--color-overlay-eyebrow);
+}
+
+.hero-slider__controls {
+  position: absolute;
+  right: clamp(18px, 4vw, 48px);
+  bottom: clamp(30px, 5vw, 58px);
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .hero-slider {
+    height: 460px;
+  }
+
+  .hero-slide__title {
+    font-size: 30px;
+  }
+
+  .hero-slider__controls {
+    top: 18px;
+    bottom: auto;
+    right: 18px;
+  }
+
+  .hero-slider__controls .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+}

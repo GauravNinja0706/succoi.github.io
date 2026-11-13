@@ -20,11 +20,18 @@
 @import url("components/nav-links.css");
 @import url("components/filter-button.css");
 @import url("components/hero.css");
+@import url("components/carousel.css");
+@import url("components/hero-slider.css");
+@import url("components/marquee.css");
 @import url("components/story-card.css");
+@import url("components/spot-card.css");
+@import url("components/feed-card.css");
+@import url("components/scroll-ui.css");
 @import url("components/newsletter-form.css");
 
 /* Sections */
-@import url("sections/intro-strip.css");
+@import url("sections/spots.css");
+@import url("sections/feed.css");
 @import url("sections/stories.css");
 @import url("sections/manifesto.css");
 @import url("sections/newsletter.css");
