@@ -4,19 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f8f7f4" />
-  <meta name="description" content="Succoi — The Food Journey. Discover recipes, food stories, ingredients, and the people behind every dish." />
-  <title>Succoi — The Food Journey</title>
+  <meta name="description" content="Succoi (@succoi_) — a food and cafe journal covering specialty coffee, bakeries, dessert bars and local eateries across Hyderabad, Vizag, Coimbatore and Vijayawada." />
+  <title>Succoi — Food &amp; Cafe Journal</title>
+  <script>document.documentElement.classList.add("js");</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/main.css" />
-  <meta property="og:image" content="https://bolt.new/static/og_default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+  <meta property="og:title" content="Succoi — Food &amp; Cafe Journal">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=1200&q=80">
 </head>
 <body>
+
+  <div class="scroll-progress" data-js="scroll-progress" aria-hidden="true"></div>
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -28,12 +33,13 @@
 
       <ul class="nav-links" id="navLinks" data-js="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#stories">Stories</a></li>
-        <li><a href="#about">Our philosophy</a></li>
-        <li><a href="#newsletter">Journal club</a></li>
+        <li><a href="#spots">Spots</a></li>
+        <li><a href="#feed">The feed</a></li>
+        <li><a href="#stories">Journal</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
       </ul>
 
-      <a href="#stories" class="navbar__cta">Explore the journal ↗</a>
+      <a href="https://www.instagram.com/succoi_/" class="navbar__cta" target="_blank" rel="noopener noreferrer">Follow @succoi_ ↗</a>
 
       <button
         class="navbar__toggle"
@@ -48,34 +54,266 @@
   <main id="main">
     <section class="hero container" id="home" aria-labelledby="hero-title">
       <div class="hero__copy">
-        <p class="eyebrow">A journal for the curious palate</p>
+        <p class="eyebrow">Cafes · Bakeries · Dessert bars · Eateries</p>
         <h1 class="hero__title" id="hero-title">Food is more<br>than <em>what we eat.</em></h1>
         <p class="hero__description">
-          It is where we come from, what we remember,
-          and the moments we create around a table.
-          Welcome to the food journey.
+          Succoi is a food and cafe journal by @succoi_ —
+          mapping specialty coffee, bakeries, dessert bars
+          and local eateries across Hyderabad, Vizag,
+          Coimbatore and Vijayawada.
         </p>
       </div>
 
-      <a class="hero__image-wrap" href="#stories" aria-label="Explore the latest food stories">
-        <img
-          class="hero__image"
-          src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=2000&q=85"
-          alt="A beautifully prepared meal with fresh ingredients"
-          fetchpriority="high"
-        >
-        <div class="hero__overlay">
-          <div>
-            <p class="eyebrow">The Sunday Table · Issue No. 01</p>
-            <h2 class="hero__overlay-title">The beauty of slowing down, one meal at a time.</h2>
-            <span class="text-link">Discover the story <span aria-hidden="true">↗</span></span>
+      <!-- NOTE: replace slide images/titles with your own photos and real spots. -->
+      <div
+        class="hero-slider swiper"
+        data-js="hero-slider"
+        aria-roledescription="carousel"
+        aria-label="Featured food spots"
+      >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide hero-slide" aria-roledescription="slide">
+            <img class="hero-slide__image" src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=2000&q=85" alt="Specialty coffee served in a warm, intimate cafe" fetchpriority="high">
+            <div class="hero-slide__overlay">
+              <div>
+                <p class="hero-slide__tag">Hyderabad · Jubilee Hills</p>
+                <h2 class="hero-slide__title">Oro House, and the slow art of specialty coffee.</h2>
+                <a href="#spots" class="text-link">See the spots <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide hero-slide" aria-roledescription="slide">
+            <img class="hero-slide__image" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=2000&q=85" alt="A loaded burger on a diner table" loading="lazy">
+            <div class="hero-slide__overlay">
+              <div>
+                <p class="hero-slide__tag">Hyderabad · HITEC City</p>
+                <h2 class="hero-slide__title">The All American Diner, big plates and bigger appetites.</h2>
+                <a href="#spots" class="text-link">See the spots <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide hero-slide" aria-roledescription="slide">
+            <img class="hero-slide__image" src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=2000&q=85" alt="A beautifully prepared meal with fresh ingredients" loading="lazy">
+            <div class="hero-slide__overlay">
+              <div>
+                <p class="hero-slide__tag">Vizag</p>
+                <h2 class="hero-slide__title">Cafes and plates along the Vizag coast.</h2>
+                <a href="#spots" class="text-link">See the spots <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide hero-slide" aria-roledescription="slide">
+            <img class="hero-slide__image" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=2000&q=85" alt="Colourful glazed doughnuts from a bakery" loading="lazy">
+            <div class="hero-slide__overlay">
+              <div>
+                <p class="hero-slide__tag">Coimbatore</p>
+                <h2 class="hero-slide__title">Bakeries and dessert bars worth the detour.</h2>
+                <a href="#spots" class="text-link">See the spots <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
 
-      <div class="intro-strip">
-        <p>Good food. Honest stories. Meaningful moments.</p>
-        <span>Made with curiosity, served with love.</span>
+        <div class="swiper-pagination hero-slider__progress" data-js="hero-progress"></div>
+        <div class="hero-slider__controls">
+          <button class="carousel-btn carousel-btn--light" type="button" data-js="hero-prev" aria-label="Previous slide">←</button>
+          <button class="carousel-btn carousel-btn--light" type="button" data-js="hero-next" aria-label="Next slide">→</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Cities and categories covered by Succoi">
+      <div class="marquee__track">
+        <ul class="marquee__list">
+          <li>Hyderabad</li><li>Vizag</li><li>Coimbatore</li><li>Vijayawada</li>
+          <li>Specialty coffee</li><li>Bakeries</li><li>Dessert bars</li><li>Local eateries</li>
+        </ul>
+        <ul class="marquee__list" aria-hidden="true">
+          <li>Hyderabad</li><li>Vizag</li><li>Coimbatore</li><li>Vijayawada</li>
+          <li>Specialty coffee</li><li>Bakeries</li><li>Dessert bars</li><li>Local eateries</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="section container spots" id="spots" aria-labelledby="spots-title" data-js="spots">
+      <div class="section__heading" data-reveal>
+        <div>
+          <p class="eyebrow">Where to eat next</p>
+          <h2 id="spots-title">Spots worth the trip.</h2>
+        </div>
+        <p>Swipe through cafes, bakeries and eateries — then filter by city.</p>
+      </div>
+
+      <div class="spots__toolbar" data-reveal>
+        <div class="stories__filter-row" role="group" aria-label="Filter spots by city">
+          <button class="filter-btn filter-btn--active" data-js="spot-filter" data-city="all" aria-pressed="true">All cities</button>
+          <button class="filter-btn" data-js="spot-filter" data-city="hyderabad" aria-pressed="false">Hyderabad</button>
+          <button class="filter-btn" data-js="spot-filter" data-city="vizag" aria-pressed="false">Vizag</button>
+          <button class="filter-btn" data-js="spot-filter" data-city="coimbatore" aria-pressed="false">Coimbatore</button>
+          <button class="filter-btn" data-js="spot-filter" data-city="vijayawada" aria-pressed="false">Vijayawada</button>
+        </div>
+        <div class="spots__arrows">
+          <button class="carousel-btn" type="button" data-js="spots-prev" aria-label="Previous spots">←</button>
+          <button class="carousel-btn" type="button" data-js="spots-next" aria-label="Next spots">→</button>
+        </div>
+      </div>
+
+      <!-- NOTE: only Oro House and The All American Diner are real picks; swap the rest for your actual spots. -->
+      <div class="spots__carousel swiper" data-js="spots-carousel" aria-roledescription="carousel" aria-label="Food spots">
+        <div class="swiper-wrapper">
+
+          <article class="swiper-slide story-card spot-card" data-city="hyderabad">
+            <a href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer" aria-label="See Oro House on Instagram">
+              <div class="story-card__image-wrap">
+                <img class="story-card__image" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=80" alt="A cup of specialty coffee" loading="lazy" draggable="false">
+                <span class="spot-card__badge">Hyderabad</span>
+              </div>
+            </a>
+            <div class="story-card__meta"><span>Specialty coffee</span><span>Jubilee Hills</span></div>
+            <h3 class="story-card__title">Oro House</h3>
+            <p class="story-card__description">A slow afternoon, a well-pulled shot and a corner of Jubilee Hills worth settling into.</p>
+            <a href="https://www.instagram.com/succoi_/" class="text-link" target="_blank" rel="noopener noreferrer">See it on Instagram <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="swiper-slide story-card spot-card" data-city="hyderabad">
+            <a href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer" aria-label="See The All American Diner on Instagram">
+              <div class="story-card__image-wrap">
+                <img class="story-card__image" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=80" alt="A loaded burger and fries" loading="lazy" draggable="false">
+                <span class="spot-card__badge">Hyderabad</span>
+              </div>
+            </a>
+            <div class="story-card__meta"><span>Diner</span><span>HITEC City</span></div>
+            <h3 class="story-card__title">The All American Diner</h3>
+            <p class="story-card__description">Classic diner comfort in HITEC City — generous plates built for sharing.</p>
+            <a href="https://www.instagram.com/succoi_/" class="text-link" target="_blank" rel="noopener noreferrer">See it on Instagram <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="swiper-slide story-card spot-card" data-city="hyderabad">
+            <a href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer" aria-label="See Hyderabad dessert bars on Instagram">
+              <div class="story-card__image-wrap">
+                <img class="story-card__image" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80" alt="A slice of chocolate cake" loading="lazy" draggable="false">
+                <span class="spot-card__badge">Hyderabad</span>
+              </div>
+            </a>
+            <div class="story-card__meta"><span>Dessert bars</span><span>Hyderabad</span></div>
+            <h3 class="story-card__title">The dessert bar shelf</h3>
+            <p class="story-card__description">Cakes, pastries and the sweet endings worth saving room for.</p>
+            <a href="https://www.instagram.com/succoi_/" class="text-link" target="_blank" rel="noopener noreferrer">See it on Instagram <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="swiper-slide story-card spot-card" data-city="vizag">
+            <a href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer" aria-label="See the Vizag cafe trail on Instagram">
+              <div class="story-card__image-wrap">
+                <img class="story-card__image" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80" alt="A quiet cafe coffee moment" loading="lazy" draggable="false">
+                <span class="spot-card__badge">Vizag</span>
+              </div>
+            </a>
+            <div class="story-card__meta"><span>Cafes</span><span>Vizag</span></div>
+            <h3 class="story-card__title">The Vizag cafe trail</h3>
+            <p class="story-card__description">Coffee-first stops for slow mornings by the coast.</p>
+            <a href="https://www.instagram.com/succoi_/" class="text-link" target="_blank" rel="noopener noreferrer">See it on Instagram <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="swiper-slide story-card spot-card" data-city="vizag">
+            <a href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer" aria-label="See Vizag local eats on Instagram">
+              <div class="story-card__image-wrap">
+                <img class="story-card__image" src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=1000&q=80" alt="A beautifully plated meal" loading="lazy" draggable="false">
+                <span class="spot-card__badge">Vizag</span>
+              </div>
+            </a>
+            <div class="story-card__meta"><span>Local eateries</span><span>Vizag</span></div>
+            <h3 class="story-card__title">Vizag local eats</h3>
+            <p class="story-card__description">Honest, well-loved plates from the city's neighbourhood kitchens.</p>
+            <a href="https://www.instagram.com/succoi_/" class="text-link" target="_blank" rel="noopener noreferrer">See it on Instagram <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="swiper-slide story-card spot-card" data-city="coimbatore">
+            <a href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer" aria-label="See Coimbatore bakeries on Instagram">
+              <div class="story-card__image-wrap">
+                <img class="story-card__image" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1000&q=80" alt="Glazed doughnuts from a bakery" loading="lazy" draggable="false">
+                <span class="spot-card__badge">Coimbatore</span>
+              </div>
+            </a>
+            <div class="story-card__meta"><span>Bakeries</span><span>Coimbatore</span></div>
+            <h3 class="story-card__title">The Coimbatore bakery trail</h3>
+            <p class="story-card__description">Fresh bakes, warm counters and pastries that vanish by noon.</p>
+            <a href="https://www.instagram.com/succoi_/" class="text-link" target="_blank" rel="noopener noreferrer">See it on Instagram <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="swiper-slide story-card spot-card" data-city="coimbatore">
+            <a href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer" aria-label="See Coimbatore coffee spots on Instagram">
+              <div class="story-card__image-wrap">
+                <img class="story-card__image" src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80" alt="Coffee prepared in a cosy cafe" loading="lazy" draggable="false">
+                <span class="spot-card__badge">Coimbatore</span>
+              </div>
+            </a>
+            <div class="story-card__meta"><span>Specialty coffee</span><span>Coimbatore</span></div>
+            <h3 class="story-card__title">Coimbatore coffee stops</h3>
+            <p class="story-card__description">Quiet cafes and well-made cups, tucked around the city.</p>
+            <a href="https://www.instagram.com/succoi_/" class="text-link" target="_blank" rel="noopener noreferrer">See it on Instagram <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="swiper-slide story-card spot-card" data-city="vijayawada">
+            <a href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer" aria-label="See Vijayawada eateries on Instagram">
+              <div class="story-card__image-wrap">
+                <img class="story-card__image" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80" alt="A welcoming restaurant dining room" loading="lazy" draggable="false">
+                <span class="spot-card__badge">Vijayawada</span>
+              </div>
+            </a>
+            <div class="story-card__meta"><span>Local eateries</span><span>Vijayawada</span></div>
+            <h3 class="story-card__title">Vijayawada eats</h3>
+            <p class="story-card__description">Long tables, local flavours and the places everyone recommends.</p>
+            <a href="https://www.instagram.com/succoi_/" class="text-link" target="_blank" rel="noopener noreferrer">See it on Instagram <span aria-hidden="true">↗</span></a>
+          </article>
+
+        </div>
+        <div class="swiper-scrollbar spots__scrollbar" data-js="spots-scrollbar"></div>
+      </div>
+      <p class="visually-hidden" aria-live="polite" data-js="spots-status"></p>
+    </section>
+
+    <section class="feed" id="feed" aria-labelledby="feed-title">
+      <div class="container">
+        <div class="section__heading" data-reveal>
+          <div>
+            <p class="eyebrow">From the feed</p>
+            <h2 id="feed-title">Fresh off @succoi_.</h2>
+          </div>
+          <a href="https://www.instagram.com/succoi_/" class="text-link" target="_blank" rel="noopener noreferrer">Follow on Instagram <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="feed__carousel swiper" data-js="feed-carousel" aria-roledescription="carousel" aria-label="Latest from Instagram">
+        <div class="swiper-wrapper">
+          <a class="swiper-slide feed-card" href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80" alt="Latte art in a ceramic cup" loading="lazy" draggable="false">
+            <span class="feed-card__caption">Hyderabad · Coffee</span>
+          </a>
+          <a class="swiper-slide feed-card" href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80" alt="A tray of glazed doughnuts" loading="lazy" draggable="false">
+            <span class="feed-card__caption">Coimbatore · Bakery</span>
+          </a>
+          <a class="swiper-slide feed-card" href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="A stacked burger with fries" loading="lazy" draggable="false">
+            <span class="feed-card__caption">Hyderabad · Diner</span>
+          </a>
+          <a class="swiper-slide feed-card" href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="A rich chocolate cake slice" loading="lazy" draggable="false">
+            <span class="feed-card__caption">Vijayawada · Dessert</span>
+          </a>
+          <a class="swiper-slide feed-card" href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=700&q=80" alt="A colourful plated meal" loading="lazy" draggable="false">
+            <span class="feed-card__caption">Vizag · Eats</span>
+          </a>
+          <a class="swiper-slide feed-card" href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" alt="A fresh, colourful bowl" loading="lazy" draggable="false">
+            <span class="feed-card__caption">Vizag · Fresh bowls</span>
+          </a>
+        </div>
+        <div class="swiper-pagination feed__pagination" data-js="feed-pagination"></div>
       </div>
     </section>
 
@@ -288,15 +526,19 @@
 
       <nav class="footer__links" aria-label="Footer navigation">
         <a href="#home">Home</a>
+        <a href="#spots">Spots</a>
         <a href="#stories">Journal</a>
         <a href="#about">Our story</a>
-        <a href="#newsletter">Contact</a>
+        <a href="https://www.instagram.com/succoi_/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </nav>
 
       <p class="footer__note">Made for the love of food.</p>
     </div>
   </footer>
 
+  <button class="back-to-top" type="button" data-js="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
